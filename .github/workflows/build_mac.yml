@@ -30,7 +30,8 @@ jobs:
           pyinstaller --onefile --windowed main.py
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AuthentiAI-mac
           path: dist/*
+
