@@ -1,1 +1,2 @@
+modello_finale/model.safetensors filter=lfs diff=lfs merge=lfs -text
 modello_finale/*.safetensors filter=lfs diff=lfs merge=lfs -text
