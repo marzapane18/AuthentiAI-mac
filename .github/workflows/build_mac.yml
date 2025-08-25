@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          lfs: true  # scarica anche i file grandi tracciati con Git LFS
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -27,11 +29,15 @@ jobs:
 
       - name: Build macOS app
         run: |
-          pyinstaller --onefile --windowed main.py
+          pyinstaller \
+            --name "AuthentiAI" \
+            --windowed \
+            --onefile \
+            --add-data "modello_finale:modello_finale" \
+            AuthentiAIMacOS.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: AuthentiAI-mac
           path: dist/*
-
